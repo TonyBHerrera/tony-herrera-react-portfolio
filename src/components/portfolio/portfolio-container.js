@@ -3,7 +3,11 @@ import React, { Component } from "react";
 import PortfolioItem from "./portfolio-item"
 
 export default class PortfolioContainer extends Component {
-    // State 
+    constructor() {
+        super()
+
+        console.log("portfolio container has rendered")
+    }
     render() {
         return (
             <div>
