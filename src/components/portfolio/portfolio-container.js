@@ -11,10 +11,10 @@ export default class PortfolioContainer extends Component {
             pageTitle: "Welcome to my portfolio",
             isLoading: false,
             data: [
-                { title: "Quip", category: "eCommerce" },
-                { title: "Eventbright", category: "Scheduling" },
-                { title: "Ministry Safe", category: "Enterprise" },
-                { title: "Swing Away", category: "eCommerce" }
+                { title: "Quip", category: "eCommerce", slug: "quip" },
+                { title: "Eventbright", category: "Scheduling", slug: "eventbright" },
+                { title: "Ministry Safe", category: "Enterprise", slug: "ministry-safe" },
+                { title: "Swing Away", category: "eCommerce", slug: "swingaway" }
             ]
         }
 
@@ -32,7 +32,7 @@ export default class PortfolioContainer extends Component {
     portfolioItems() {
 
         return this.state.data.map(item => {
-            return <PortfolioItem title={item.title} />
+            return <PortfolioItem title={item.title} url={"google.com"} slug={item.slug} />
         })
     }
 
