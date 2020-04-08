@@ -10,6 +10,8 @@ import PortfolioContainer from './portfolio/portfolio-container'
 import NavigationContainer from './navigation/navigation-container'
 import About from './pages/about'
 import Home from './pages/home'
+import Contact from './pages/contact'
+import Blog from './pages/blog'
 
 export default class App extends Component {
   render() {
@@ -23,7 +25,9 @@ export default class App extends Component {
 
             <Switch>
               <Route exact path="/" component={Home} />
-              <Route exact path="/about-me" component={About} />
+              <Route path="/about-me" component={About} />
+              <Route path="/contact" component={Contact} />
+              <Route path="/blog" component={Blog} />
             </Switch>
           </div>
         </Router>
@@ -36,3 +40,4 @@ export default class App extends Component {
     );
   }
 }
+
