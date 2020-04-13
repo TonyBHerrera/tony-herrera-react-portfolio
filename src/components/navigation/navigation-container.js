@@ -20,7 +20,7 @@ export default class NavigationComponent extends Component {
 
                     <div className="nav-link-wrapper">
                         <NavLink to="/about-me" activeClassName="nav-link-active">
-                            About Me
+                            About
                         </NavLink>
                     </div>
 
