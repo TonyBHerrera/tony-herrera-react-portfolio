@@ -25,11 +25,12 @@
             text-align: center;
             padding-left: 100px;
             padding-right: 100px;
-        }
 
-        .subtitle {
-            transition: 1s ease-in-out;
-            color: transparent;
+
+            .subtitle {
+                transition: 1s ease-in-out;
+                color: transparent;
+            }
         }
 
         .img-text-wrapper:hover .subtitle {
@@ -43,4 +44,9 @@
         }
 
     }
+}
+
+.image-blur {
+    transition: 1s;
+    filter: brightness(10%);
 }
