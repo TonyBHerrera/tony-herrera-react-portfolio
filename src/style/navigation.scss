@@ -3,4 +3,28 @@
     justify-content: space-between;
     padding: 30px;
 
+    .left-side {
+        display: flex;
+    }
+
+    .nav-link-wrapper {
+        height: 22px;
+        border-bottom: 1px solid transparent;
+        transition: 0.05s ease-in-out;
+
+
+        a {
+            color: $grey;
+            text-decoration: none;
+
+            &:hover {
+                color: black;
+            }
+        }
+
+        &:hover {
+            color: black;
+            border-bottom: 1px solid black;
+        }
+    }
 }
