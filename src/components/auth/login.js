@@ -8,7 +8,8 @@ export default class Login extends Component {
 
         this.state = {
             email: "",
-            password: ""
+            password: "",
+            errorText: ""
         }
 
         this.handleChange = this.handleChange.bind(this)
@@ -18,7 +19,8 @@ export default class Login extends Component {
 
     handleChange(event) {
         this.setState({
-            [event.target.name]: event.target.value
+            [event.target.name]: event.target.value,
+            errorText: ""
         })
     }
 
@@ -27,14 +29,26 @@ export default class Login extends Component {
             {
                 client: {
                     email: this.state.email,
-                    password: this.state.password
+                    password: this.state.password,
+
                 }
             },
             { withCredentials: true }
 
         )
             .then(response => {
-                console.log("response", response)
+                if (response.data.status === 'created') {
+                    console.log("you can come in..")
+                } else {
+                    this.setState({
+                        errorText: "Wrong email or password"
+                    })
+                }
+            }).catch(error => {
+                console.log("some error occured", error)
+                this.setState({
+                    errorText: "An error occured"
+                })
             })
 
         event.preventDefault()
@@ -43,6 +57,8 @@ export default class Login extends Component {
         return (
             <div>
                 <h1>LOGIN TO ACCESS YOUR DASHBOARD</h1>
+
+                <div>{this.state.errorText}</div>
 
                 <form onSubmit={this.handleSubmit}>
                     <input
