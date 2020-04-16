@@ -1,7 +1,9 @@
-import React from 'react'
-import { NavLink } from 'react-router-dom'
+import React from "react";
+import axios from "axios";
+import { withRouter } from "react-router";
+import { NavLink } from "react-router-dom";
 
-const NavigationComponent = (props) => {
+const NavigationComponent = props => {
     const dynamicLink = (route, linkText) => {
         return (
             <div className="nav-link-wrapper">
@@ -9,13 +11,29 @@ const NavigationComponent = (props) => {
                     Blog
                 </NavLink>
             </div>
-        )
-    }
+        );
+    };
+
+    const handleSignOut = () => {
+        axios
+            .delete("https://api.devcamp.space/logout", { withCredentials: true })
+            .then(response => {
+                if (response.status === 200) {
+                    props.history.push("/");
+                    props.handleSuccessfullLogout();
+                }
+                return response.data;
+            })
+            .catch(error => {
+                console.log("Error signing out", error);
+            });
+    };
+
     return (
         <div className="nav-wrapper">
             <div className="left-side">
                 <div className="nav-link-wrapper">
-                    <NavLink exact to="/">
+                    <NavLink exact to="/" activeClassName="nav-link-active">
                         Home
                     </NavLink>
                 </div>
@@ -35,14 +53,16 @@ const NavigationComponent = (props) => {
                 {props.loggedInStatus === "LOGGED_IN" ? (
                     dynamicLink("/blog", "Blog")
                 ) : null}
-
-
-
             </div>
-            <div className="right-side">Tony Herrera</div>
+
+            <div className="right-side">
+                Tony Herrera
+            {props.loggedInStatus === "LOGGED_IN" ? (
+                    <a onClick={handleSignOut}>Sign Out</a>
+                ) : null}
+            </div>
         </div>
-    )
+    );
+};
 
-}
-
-export default NavigationComponent    
+export default withRouter(NavigationComponent);    
