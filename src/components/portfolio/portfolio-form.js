@@ -82,5 +82,4 @@ export default class PortfolioForm extends Component {
             </div>
         );
     }
-
 }
