@@ -12,7 +12,9 @@
         outline: none;
     }
 
-    &:hover {}
+    &:hover {
+        background-color: $dark-teal;
+    }
 
     background-color: $teal;
 }
