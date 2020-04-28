@@ -270,7 +270,7 @@ export default class PortfolioForm extends Component {
                             <div className="image-removal-link">
                                 <a onClick={() => this.deleteImage("banner_image")}>
                                     Remove file
-                </a>
+                                </a>
                             </div>
                         </div>
                     ) : (
@@ -307,7 +307,7 @@ export default class PortfolioForm extends Component {
                 <div>
                     <button className="btn" type="submit">
                         Save
-          </button>
+                    </button>
                 </div>
             </form>
         );
